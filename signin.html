@@ -1,0 +1,331 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CravePlatter — Sign In</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    :root {
+      --accent: #ff6b6b;
+      --muted: #6b7280;
+      --bg: #f7f8fb;
+      --card: #ffffff;
+      --radius: 14px;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: linear-gradient(180deg, #fff 0%, var(--bg) 100%);
+      color: #111;
+    }
+
+    .container {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 32px;
+    }
+
+    /* Card */
+    .auth-card {
+      background: var(--card);
+      width: 100%;
+      max-width: 980px;
+      border-radius: var(--radius);
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      overflow: hidden;
+    }
+
+    /* Left (visual) */
+    .auth-visual {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      padding: 40px;
+      background: linear-gradient(180deg, rgba(255, 107, 107, 0.06), rgba(255, 107, 107, 0.02));
+      align-items: flex-start;
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 22px;
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .visual-hero {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .visual-hero img {
+      max-width: 85%;
+      height: auto;
+    }
+
+    .visual-text {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    /* Right (form) */
+    .auth-form {
+      padding: 36px 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .form-title {
+      font-size: 22px;
+      margin: 0;
+    }
+
+    .form-sub {
+      color: var(--muted);
+      font-size: 14px;
+      margin: 0;
+    }
+
+    .input {
+      width: 100%;
+      padding: 12px 14px;
+      border-radius: 10px;
+      border: 1px solid #e6e9ef;
+      background: #fbfdff;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .row {
+      display: flex;
+      gap: 12px;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 16px;
+      border-radius: 10px;
+      background: var(--accent);
+      color: white;
+      border: none;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .btn-ghost {
+      background: transparent;
+      border: 1px solid #e6e9ef;
+      padding: 10px 12px;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .divider:before,
+    .divider:after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: #eef2f7;
+    }
+
+    .socials {
+      display: flex;
+      gap: 8px;
+    }
+
+    .socials button {
+      flex: 1;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      justify-content: center;
+      padding: 10px;
+      border-radius: 10px;
+      border: 1px solid #e6e9ef;
+      background: white;
+      cursor: pointer;
+    }
+
+    .muted {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .help-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .show-pass {
+      background: transparent;
+      border: none;
+      cursor: pointer;
+    }
+
+    @media (max-width:900px) {
+      .auth-card {
+        grid-template-columns: 1fr;
+      }
+
+      .auth-visual {
+        display: none;
+      }
+
+      .auth-form {
+        padding: 28px;
+      }
+    }
+
+    @media (max-width:420px) {
+      .container {
+        padding: 18px;
+      }
+
+      .auth-form {
+        padding: 18px;
+      }
+
+      .logo {
+        font-size: 18px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <main class="auth-card" role="main" aria-labelledby="signin-title">
+      <aside class="auth-visual" aria-hidden="true">
+        <a class="logo" href="#">CravePlatter</a>
+        <div class="visual-hero">
+          <img src="images/delivery-boy-with-phone.png" alt="Delivery illustration" />
+        </div>
+        <p class="visual-text">Fast delivery, fresh ingredients and secure checkout. Sign in to view your orders, track
+          deliveries and manage favourites.</p>
+      </aside>
+
+      <section class="auth-form">
+        <div>
+          <h1 id="signin-title" class="form-title">Welcome back</h1>
+          <p class="form-sub">Sign in to your account to continue ordering delicious food.</p>
+        </div>
+
+        <form id="signinForm" novalidate>
+          <div class="field">
+            <label for="email" class="muted">Email</label>
+            <input id="email" class="input" type="email" name="email" placeholder="you@example.com" required
+              autocomplete="email">
+          </div>
+
+          <div class="field">
+            <label for="password" class="muted">Password</label>
+            <div style="display:flex;gap:8px;align-items:center">
+              <input id="password" class="input" type="password" name="password" placeholder="Enter your password"
+                required autocomplete="current-password">
+              <button type="button" class="show-pass" id="togglePass" aria-label="Show password"><i
+                  class="fa-regular fa-eye"></i></button>
+            </div>
+          </div>
+
+          <div class="help-row">
+            <label style="display:flex;align-items:center;gap:8px;font-size:14px">
+              <input type="checkbox" name="remember"> Remember me
+            </label>
+            <a href="#" class="muted">Forgot password?</a>
+          </div>
+
+          <div style="display:flex;gap:12px;flex-direction:column">
+            <button class="btn-primary" type="submit">Sign in</button>
+            <button type="button" class="btn-ghost" id="guestBtn">Continue as guest</button>
+          </div>
+
+          <div class="divider" style="margin-top:6px">Or continue with</div>
+
+          <div class="socials">
+            <button type="button"><i class="fa-brands fa-google"></i> Google</button>
+            <button type="button"><i class="fa-brands fa-apple"></i> Apple</button>
+            <button type="button"><i class="fa-brands fa-facebook"></i> Facebook</button>
+          </div>
+
+        </form>
+
+        <p class="muted">Don't have an account? <a href="signup.html">Create account</a></p>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    document.getElementById('togglePass').addEventListener('click', function () {
+      const pw = document.getElementById('password');
+      const icon = this.querySelector('i');
+
+      if (pw.type === 'password') {
+        pw.type = 'text';
+        icon.className = 'fa-regular fa-eye-slash';
+        this.setAttribute('aria-pressed', 'true');
+      }
+      else {
+        pw.type = 'password';
+        icon.className = 'fa-regular fa-eye';
+        this.setAttribute('aria-pressed', 'false');
+      }
+    });
+
+    document.getElementById('signinForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const email = document.getElementById('email');
+      const password = document.getElementById('password');
+
+      if (!email.checkValidity()) {
+        alert('Please enter a valid email');
+        email.focus();
+        return;
+      }
+
+      if (password.value.trim().length < 6) {
+        alert('Password must be at least 6 characters');
+        password.focus();
+        return;
+      }
+
+      alert('Login Successful');
+    });
+
+    document.getElementById('guestBtn').addEventListener('click', function () {
+      alert('Continuing as guest...');
+    });
+  </script>
+</body>
+
+</html>
